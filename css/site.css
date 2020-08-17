@@ -1,0 +1,253 @@
+﻿main {
+    position: relative;
+    padding-top: 4.5rem;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+
+.combo {
+    display: grid;
+    grid-template-columns: 1fr 35px;
+}
+
+.combo-select {
+    border: 1px solid grey;
+    border-radius: 4px;
+    background-color: rgba(211, 211, 211, 1);
+    padding: 5px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    z-index: 2;
+}
+
+    .combo-select:focus {
+        box-shadow: none;
+        border-color: grey;
+    }
+
+.combo-textbox {
+    border: 1px solid grey;
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: rgba(230, 230, 230, 1);
+    padding: 5px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    outline: none;
+    z-index: 1;
+}
+
+.combo-input {
+    border: 2px solid grey;
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    outline: none;
+    z-index: 1;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slow-show {
+    animation-name: slow-show;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+
+.slow-show-close {
+    animation-name: slow-show-close;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+.productdetails-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-gap: 1px;
+}
+
+.item {
+    border: 1px solid grey;
+    border-radius: 0px;
+    background-color: lightgrey;
+    padding: 5px;
+    text-align: center;
+    color: black;
+}
+
+.item-input {
+    background-color: white;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.item-btn {
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+}
+
+.wrap-text {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.item-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+
+@keyframes slow-show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slow-show-close {
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+.fadein {
+    animation-name: fadein;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.parent-menu-left {
+    position: fixed;
+    top: 250px;
+    bottom: 20px;
+    left: 0px;
+    width: 0px;
+}
+
+.sticky-btn {
+    opacity: 0;
+    transform: translateX(-230px);
+    transition: transform 0.2s ease-out 0.2s, opacity 0.35s ease-out 0.3s;
+}
+
+.sticky-menu-left {
+    position: sticky;
+    top: 40px;
+    bottom: 40px;
+    height: 130px;
+    width: 250px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgba(176, 196, 222, 0.75);
+    transition: transform 0.2s;
+    transform: translateX(-230px);
+    animation: fadein-p75 1s;
+}
+
+    .sticky-menu-left:hover {
+        transform: translateX(0px);
+    }
+
+        .sticky-menu-left:hover .sticky-btn {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+
+@keyframes fadein-p75 {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 0.75
+    }
+}
+
+.trapezoid {
+    position: absolute;
+    border-bottom: 5px solid darkgray;
+    border-left: 1.5px solid transparent;
+    border-right: 1.5px solid transparent;
+    height: 0;
+    width: 12px;
+    animation: loading 2s linear infinite normal none;
+}
+
+@keyframes loading {
+    0% { opacity: 0.01 }
+    10% { opacity: 1 }
+    20% { opacity: 0.5 }
+    40% { opacity: 0.01 }
+    100% { opacity: 0}
+}
